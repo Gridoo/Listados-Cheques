@@ -1,0 +1,3 @@
+NroCheque,CodigoBanco,CodigoSucursal,NumeroCuentaOrigen,NumeroCuentaDestino,Valor,FechaOrigen,FechaPago,DNI,Estado
+1,1,1,1,1,1,1,1,1,1
+2,2,2,2,2,2,2,2,2,2
