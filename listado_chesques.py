@@ -10,5 +10,9 @@ with open("listado.csv", "r") as archivo:
         FechaOrigen = fila[6]
         FechaPago = fila[7]
         if documento == DNI:
-            print(
-                f"El DNI: '{DNI}' Tiene su cheque en estado: '{estado}', la fecha de origen fue {FechaOrigen} y la fecha del pago {FechaPago}")
+            NroCheque = int(fila[0])
+            for j in lector:
+                if NroCheque == int(j[0]):
+                    print("hay un cheque repetido con el numero", NroCheque)
+                else:
+                    print(fila)
