@@ -14,3 +14,5 @@ with open("listado.csv", "r") as archivo:
             for j in lector:
                 if NroCheque == int(j[0]):
                     print("hay un cheque repetido con el numero", NroCheque)
+                else:
+                    print(fila)
