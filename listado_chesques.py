@@ -36,18 +36,21 @@ with open("listado.csv") as archivo:
         dni.append(fila[8])
         Estado.append(fila[9])
         Tipo.append(fila[10])
-        if documento in dni:
+        if documento in dni:    #ver que no se repita
             CuentasDNI=fila[3]
             listaCuenta.append(CuentasDNI)
             print("La cuenta se encuentra en la base de datos")
             print(listaCuenta) #hasta acá va bien
             ChequesDNI=fila[0]
             listaCheques.append(ChequesDNI)
-        if ChequesDNI in listaCheques:
-            print(listaCheques)
-            print("Error, el DNI ingresado tiene una cuenta con más de un cheque con igual numero")
+    for i in listaCuenta:   #ver que no se repita
+        if len (listaCheques)==len(set(listaCheques)):
+            print("No hay repetidos")
+        else:
+            print("ERROR, hay cheques repetidos")
+    #    if ChequesDNI in listaCheques:
 
-
+      #      print(listaCheques)
 
 #NroCheque,CodigoBanco,CodigoSucursal,NumeroCuentaOrigen,NumeroCuentaDestino,Valor,FechaOrigen,FechaPago,DNI,Estado, Tipo
 
