@@ -46,8 +46,10 @@ with open("listado.csv") as archivo:
     for i in listaCuenta:  # ver que no se repita
         if len(listaCheques) == len(set(listaCheques)):
             print("No hay repetidos")
+            break
         else:
             print("ERROR, hay cheques repetidos")
+            break
     #    if ChequesDNI in listaCheques:
 
     #      print(listaCheques)
