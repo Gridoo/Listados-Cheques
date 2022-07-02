@@ -1,4 +1,5 @@
 import csv
+
 from datetime import datetime
 
 
@@ -56,3 +57,4 @@ with open("listado.csv") as archivo:
 
 #ingresa el dni, buscar el numero de cuenta de todos los que coinciden el dni
 # fijarse si un numero de cuenta tiene mas de un cheque con mismo numero
+
