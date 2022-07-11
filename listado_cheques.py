@@ -1,11 +1,16 @@
 import csv
+import sys
 from datetime import datetime
 
-
-archivo = input("Ingrese el nombre del archivo: ")
-dni = input("Ingrese el DNI: ")
-salida = input("Ingrese el tipo de salida (pantalla/csv): ")
-tipoCheque = input("Ingrese el tipo de cheque a buscar: ")
+parametros = sys.argv[1:]
+archivo = parametros[0]
+#archivo = input("Ingrese el nombre del archivo: ")
+dni = parametros[1]
+#dni = input("Ingrese el DNI: ")
+salida = parametros[2]
+#salida = input("Ingrese el tipo de salida (pantalla/csv): ")
+tipoCheque = parametros[3]
+#tipoCheque = input("Ingrese el tipo de cheque a buscar: ")
 resultado = []
 salida = salida.upper()
 tipoCheque = tipoCheque.upper()
