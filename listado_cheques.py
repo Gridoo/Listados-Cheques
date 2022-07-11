@@ -4,16 +4,27 @@ from datetime import datetime
 
 parametros = sys.argv[1:]
 archivo = parametros[0]
-#archivo = input("Ingrese el nombre del archivo: ")
 dni = parametros[1]
-#dni = input("Ingrese el DNI: ")
 salida = parametros[2]
-#salida = input("Ingrese el tipo de salida (pantalla/csv): ")
 tipoCheque = parametros[3]
-#tipoCheque = input("Ingrese el tipo de cheque a buscar: ")
+fecha = None
+estado = None
 resultado = []
+
 salida = salida.upper()
 tipoCheque = tipoCheque.upper()
+
+if len(parametros) == 5:
+    opcional = parametros[4]
+    estado = ["PENDIENTE", "APROBADO", "RECHAZADO"]
+    if opcional in estado:
+        estado_filtrado = opcional
+    else:
+        fecha = opcional
+elif len(parametros) == 6:
+    estado_filtrado = parametros[4]
+    fecha = parametros[5]
+
 with open(archivo) as file:
     lector = csv.reader(file, delimiter=",")
     for fila in lector:
@@ -21,6 +32,8 @@ with open(archivo) as file:
         tipoChequeOriginal = fila[9]
         estadoChequeOriginal = fila[10]
         if documento != dni or tipoCheque != tipoChequeOriginal:
+            continue
+        if estado_filtrado and estadoChequeOriginal != estado_filtrado:
             continue
         resultado.append(fila)
 cantCheques = set()
