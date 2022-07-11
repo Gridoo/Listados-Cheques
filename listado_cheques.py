@@ -15,7 +15,7 @@ resultado = []
 salida = salida.upper()
 tipoCheque = tipoCheque.upper()
 with open(archivo) as file:
-    lector = csv.reader(file, delimiter=";")
+    lector = csv.reader(file, delimiter=",")
     for fila in lector:
         documento = fila[8]
         tipoChequeOriginal = fila[9]
@@ -34,12 +34,12 @@ for fila in resultado:
         cantCheques.add((Cheques, CuentaOrigen, documento))
         if salida == "PANTALLA":
             for fila in resultado:
-                print("Los datos del dni ingresado son: ", documento, "\n ", fila)
+                print("Los datos del dni ingresado son: ",
+                      documento, "\n ", fila)
         elif salida == "CSV":
             filtrado = [fila[3], fila[5], fila[6], fila[7]]
             dt = datetime.now()
             dt = dt.strftime("%d-%m-%Y")
             with open(f'{fila[8]}-{dt}.csv', 'w') as salida:
-                writer=csv.writer(salida)
+                writer = csv.writer(salida)
                 writer.writerows(filtrado)
-
