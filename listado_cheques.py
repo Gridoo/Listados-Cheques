@@ -32,13 +32,14 @@ for fila in resultado:
         resultado.append("Se repite el numero de cheque más de una vez")
     else:
         cantCheques.add((Cheques, CuentaOrigen, documento))
-if salida == "PANTALLA":
-    for fila in resultado:
-        print("Los datos del dni ingresado son: ", documento, "\n ", fila)
-elif salida == "CSV":
-    filtrado = [fila[3], fila[5], fila[6], fila[7]]
-    dt = datetime.now()
-    dt = dt.strftime("%d-%m-%Y")
-    with open(f'{fila[8]}-{dt}.csv', 'w', newline='') as salida:
-        writer = csv.writer(salida)
-        writer.writerows(filtrado)
+        if salida == "PANTALLA":
+            for fila in resultado:
+                print("Los datos del dni ingresado son: ", documento, "\n ", fila)
+        elif salida == "CSV":
+            filtrado = [fila[3], fila[5], fila[6], fila[7]]
+            dt = datetime.now()
+            dt = dt.strftime("%d-%m-%Y")
+            with open(f'{fila[8]}-{dt}.csv', 'w') as salida:
+                writer=csv.writer(salida)
+                writer.writerows(filtrado)
+
